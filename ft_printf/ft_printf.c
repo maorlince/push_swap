@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 01:51:54 by mlemerci          #+#    #+#             */
-/*   Updated: 2024/12/31 04:30:50 by mlemerci         ###   ########.fr       */
+/*   Created: 2025/02/04 17:24:10 by manon             #+#    #+#             */
+/*   Updated: 2025/02/25 13:19:26 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int ft_puthexadrr(unsigned long long n)
+int	ft_puthexadrr(unsigned long long n)
 {
-	int i;
-	char *hexa;
+	int		i;
+	char	*hexa;
 
 	hexa = "0123456789abcdef";
 	i = 0;
@@ -25,13 +25,11 @@ int ft_puthexadrr(unsigned long long n)
 	return (i);
 }
 
-int ft_putadress(void *ptr)
+int	ft_putadress(void *ptr)
 {
-	int i;
-	char *hexa;
+	int	i;
 
 	i = 0;
-	hexa = "0123456789abcdef";
 	if (!ptr)
 	{
 		write(1, "(nil)", 5);
@@ -42,12 +40,10 @@ int ft_putadress(void *ptr)
 	return (i);
 }
 
-int ft_format(va_list args, char c)
+int	ft_format(va_list args, char c)
 {
-	int i;
-	int count;
+	int	count;
 
-	i = 0;
 	count = 0;
 	if ((c == 'd') || (c == 'i'))
 		count += ft_putnbr(va_arg(args, int));
@@ -64,11 +60,11 @@ int ft_format(va_list args, char c)
 	return (count);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int i;
-	int count;
+	va_list	args;
+	int		i;
+	int		count;
 
 	va_start(args, format);
 	i = 0;
@@ -91,9 +87,4 @@ int ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (count);
-}
-
-int main(void)
-{
-	ft_printf("%x %X", 42, 42);
 }

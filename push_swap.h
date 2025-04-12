@@ -3,50 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 20:53:39 by mlemerci          #+#    #+#             */
-/*   Updated: 2024/12/31 04:17:38 by mlemerci         ###   ########.fr       */
+/*   Created: 2025/04/11 00:43:31 by manon             #+#    #+#             */
+/*   Updated: 2025/04/12 13:16:43 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdarg.h>
-# include <unistd.h>
+# include <stdlib.h>
+# include "libft.h"
+# include "ft_printf.h"
 
-//PRINTF:
-int	ft_printf(const char *format, ...);
-int	ft_putchar(char c);
-int	ft_puthexa(unsigned int n, char format);
-int	ft_putnbr(int n);
-int	ft_putstr(const char *s);
-
-//LIBFT:
-int ft_atoi(const char *str);
-char **ft_split(char const *s, char c);
-
-//PUSH_SWAP:
-typedef enum
+//PUSH_SWAP_STRUCT
+typedef struct s_stack
 {
-    false,
-    true
-} bool;
+	int				data;
+	struct s_stack	*next;
+}t_STACK,	*t_stack;
 
-typedef struct stack_element
-{
-    int value;
-    struct stack_element *next;
-}stack_element, *stack;
+//mini_fonctions
+int		swap_a(t_stack *a);
+int		swap_b(t_stack *b);
+int		swap_both(t_stack *a, t_stack *b);
+int		push_a(t_stack *a, t_stack *b);
+int		push_b(t_stack *b, t_stack *a);
+int		rotate_a(t_stack *a);
+int		rotate_b(t_stack *b);
+int		rotate_both(t_stack *a, t_stack *b);
+int		reverse_rotate_a(t_stack *a);
+int		reverse_rotate_b(t_stack *b);
+int		reverse_rotate_both(t_stack *a, t_stack *b);
 
-stack new_stack(void);
-bool empty_stack(stack b);
-stack push_stack(stack a, int v);
-stack pop_stack(stack b);
-int top_stack(stack b);
-int stack_length(stack b);
-stack clear_stack(stack b);
-void print_stack(stack b);
+//utils
+int		add_to_stack(t_stack *a, int data);
+int		print_stack(t_stack a);
+int		stack_length(t_stack a);
+void	free_stack(t_stack *a);
+void	free_tab(char **tmp);
 
 #endif

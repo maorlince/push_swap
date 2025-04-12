@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 20:47:52 by mlemerci          #+#    #+#             */
-/*   Updated: 2024/12/31 04:30:44 by mlemerci         ###   ########.fr       */
+/*   Created: 2025/02/04 17:26:34 by manon             #+#    #+#             */
+/*   Updated: 2025/02/25 13:19:32 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-	int i;
-	char *nbr;
-	long l;
+	int		i;
+	char	*nbr;
+	long	l;
 
 	l = n;
 	i = 0;
@@ -39,9 +39,9 @@ int ft_putnbr(int n)
 	return (i);
 }
 
-int ft_putstr(const char *s)
+int	ft_putstr(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -54,10 +54,10 @@ int ft_putstr(const char *s)
 	return (i);
 }
 
-int ft_puthexa(unsigned int n, char format)
+int	ft_puthexa(unsigned int n, char format)
 {
-	int i;
-	char *hexa;
+	int		i;
+	char	*hexa;
 
 	i = 0;
 	if (format == 'u')
