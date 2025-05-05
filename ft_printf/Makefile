@@ -1,9 +1,8 @@
 NAME = ft_printf.a
-HEAD = ft_printf.h
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c ft_printf.utils.c\
+SRC = ft_printf.c ft_printf_utils.c
 OBJ = $(SRC:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

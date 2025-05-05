@@ -6,25 +6,22 @@
 /*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 22:43:11 by manon             #+#    #+#             */
-/*   Updated: 2025/04/11 01:14:04 by manon            ###   ########.fr       */
+/*   Updated: 2025/04/17 22:34:06 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *a)
+void	free_stack(t_stack a)
 {
-	t_stack	current;
-	t_stack	next_node;
+	t_stack	temp;
 
-	current = *a;
-	while (current != NULL)
+	while (a)
 	{
-		next_node = current->next;
-		free(current);
-		current = next_node;
+		temp = a;
+		a = a->nxt;
+		free(temp);
 	}
-	*a = NULL;
 }
 
 void	free_tab(char **tmp)
@@ -32,13 +29,12 @@ void	free_tab(char **tmp)
 	int	i;
 
 	i = 0;
-	while (tmp[i])
-		i++;
-	i--;
+	if (!tmp)
+		return ;
 	while (tmp[i])
 	{
 		free(tmp[i]);
-		i--;
+		i++;
 	}
 	free(tmp);
 }
@@ -46,13 +42,22 @@ void	free_tab(char **tmp)
 int	add_to_stack(t_stack *a, int n)
 {
 	t_stack	new_node;
+	t_stack	tmp;
 
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
+	tmp = malloc(sizeof(t_STACK));
+	if (!tmp)
 		return (0);
-	new_node->data = n;
-	new_node->next = *a;
-	*a = new_node;
+	tmp->data = n;
+	tmp->nxt = NULL;
+	if (!*a)
+	{
+		*a = tmp;
+		return (1);
+	}
+	new_node = *a;
+	while (new_node->nxt)
+		new_node = new_node->nxt;
+	new_node->nxt = tmp;
 	return (1);
 }
 
@@ -60,8 +65,8 @@ int	print_stack(t_stack a)
 {
 	while (a != NULL)
 	{
-		ft_printf("[%d]\n");
-		a = a->next;
+		ft_printf("[%d]\n", a->data);
+		a = a->nxt;
 	}
 	return (0);
 }
@@ -71,10 +76,10 @@ int	stack_length(t_stack a)
 	int	length;
 
 	length = 0;
-	while (a != NULL)
+	while (a)
 	{
 		length++;
-		a = a->next;
+		a = a->nxt;
 	}
 	return (length);
 }

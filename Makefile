@@ -1,23 +1,22 @@
-
-NAME        = push_swap
+NAME		= push_swap
 
 # Liste de vos sources
-SRC         = push_swap.c utils.c mini_fonctions.c
-OBJ         = $(SRC:.c=.o)
+SRC			= push_swap.c utils.c mini_fonctions.c algo.c algo_utils.c
+OBJ			= $(SRC:.c=.o)
 
 # Répertoires d'inclusions
-INCLUDES    = -I./include -I./libft -I./ft_printf
+INCLUDES	= -I./include -I./libft -I./ft_printf
 
 # Dossiers des bibliothèques
-LIBFT_DIR           = ./libft
-FT_PRINTF_DIR       = ./ft_printf
+LIBFT_DIR		= ./libft
+FT_PRINTF_DIR	= ./ft_printf
 
-LIBFT       = $(LIBFT_DIR)/libft.a
-FT_PRINTF   = $(FT_PRINTF_DIR)/ft_printf.a
+LIBFT		= $(LIBFT_DIR)/libft.a
+FT_PRINTF	= $(FT_PRINTF_DIR)/ft_printf.a
 
 # Compilation
-CC          = gcc
-CFLAGS      = -Wall -Wextra -Werror
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
@@ -49,4 +48,3 @@ fclean: clean
 	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
 re: fclean all
-
