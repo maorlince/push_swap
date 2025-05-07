@@ -6,7 +6,7 @@
 /*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:08:39 by manon             #+#    #+#             */
-/*   Updated: 2025/05/07 15:23:48 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:33:33 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ int	parse_input(char **argv, t_stack *a)
 	{
 		tmp = ft_split(argv[i], ' ');
 		if (!tmp)
-			return (free(tmp), 0);
+			return (free(tmp), ft_printf("Error: Init tmp by split\n"));
 		j = 0;
 		while (tmp[j])
 		{
-			if (tmp[j][0] == '\0' || !ft_atoi(tmp[j]))
-				return (free_tab(tmp), 0);
+			if (tmp[j][0] == '\0')
+				return (free_tab(tmp), ft_printf("Error: Void argument\n"));
 			n = ft_atoi(tmp[j]);
 			if (!verif_nbr(tmp[j], n, a))
-				return (free_tab(tmp), 0);
+				return (free_tab(tmp), ft_printf("Error: Invalid number\n"));
 			j++;
 		}
 		free_tab(tmp);
@@ -69,6 +69,7 @@ int	parse_input(char **argv, t_stack *a)
 	return (1);
 }
 
+//print_stack(a);
 int	main(int argc, char**argv)
 {
 	t_stack	a;
@@ -90,7 +91,6 @@ int	main(int argc, char**argv)
 		sort_medium_stack(&a);
 	if (s_len > 5)
 		sort_large_stack(&a, &b);
-	//print_stack(a);
 	free_stack (a);
 	free_stack (b);
 }
