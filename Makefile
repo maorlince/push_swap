@@ -1,7 +1,7 @@
 NAME		= push_swap
 
 # Liste de vos sources
-SRC			= push_swap.c utils.c mini_fonctions.c algo.c algo_utils.c
+SRC			= push_swap.c utils.c mini_fonctions.c algo.c algo_utils.c minis_utils.c
 OBJ			= $(SRC:.c=.o)
 
 # Répertoires d'inclusions

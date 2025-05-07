@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 00:43:31 by manon             #+#    #+#             */
-/*   Updated: 2025/05/06 17:45:22 by manon            ###   ########.fr       */
+/*   Updated: 2025/05/07 15:17:19 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int			swap_both(t_stack *a, t_stack *b);
 int			push(t_stack *a, t_stack *b, int n);
 int			rotate(t_stack *a, int n);
 int			rotate_both(t_stack *a, t_stack *b);
+
+//minis_utils
 int			reverse_rotate(t_stack *a, int n);
 int			reverse_rotate_both(t_stack *a, t_stack *b);
 

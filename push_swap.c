@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:08:39 by manon             #+#    #+#             */
-/*   Updated: 2025/04/28 15:32:20 by manon            ###   ########.fr       */
+/*   Updated: 2025/05/07 15:23:48 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ int	parse_input(char **argv, t_stack *a)
 		j = 0;
 		while (tmp[j])
 		{
-			if (tmp[j][0] == '\0')
-				return (free_tab(tmp), 0);
-			if (!ft_atoi(tmp[j]))
+			if (tmp[j][0] == '\0' || !ft_atoi(tmp[j]))
 				return (free_tab(tmp), 0);
 			n = ft_atoi(tmp[j]);
 			if (!verif_nbr(tmp[j], n, a))
@@ -92,7 +90,7 @@ int	main(int argc, char**argv)
 		sort_medium_stack(&a);
 	if (s_len > 5)
 		sort_large_stack(&a, &b);
-	print_stack(a);
+	//print_stack(a);
 	free_stack (a);
 	free_stack (b);
 }
