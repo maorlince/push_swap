@@ -6,7 +6,7 @@
 /*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:47:04 by manon             #+#    #+#             */
-/*   Updated: 2025/05/02 00:38:15 by manon            ###   ########.fr       */
+/*   Updated: 2025/05/07 08:57:51 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@ int	verif(t_stack *a)
 	while (tmp && tmp->nxt)
 	{
 		if (tmp->data > tmp->nxt->data)
+			return (0);
+		tmp = tmp->nxt;
+	}
+	return (1);
+}
+
+int	verif_reverse(t_stack *b)
+{
+	t_stack	tmp;
+
+	if (!b || !*b)
+		return (0);
+	tmp = *b;
+	while (tmp && tmp->nxt)
+	{
+		if (tmp->data < tmp->nxt->data)
 			return (0);
 		tmp = tmp->nxt;
 	}

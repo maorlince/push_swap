@@ -6,7 +6,7 @@
 /*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 00:43:31 by manon             #+#    #+#             */
-/*   Updated: 2025/05/04 14:34:20 by manon            ###   ########.fr       */
+/*   Updated: 2025/05/06 17:45:22 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		free_tab(char **tmp);
 
 //ALGO_UTILS
 int			verif(t_stack *a);
+int			verif_reverse(t_stack *a);
 //static void	sort_int_tab(int *tab, int s_len);
 //static int	get_index(int *tab, int s_len, int value);
 void		indexation(t_stack a);
