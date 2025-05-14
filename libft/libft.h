@@ -6,7 +6,7 @@
 /*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:16:38 by mlemerci          #+#    #+#             */
-/*   Updated: 2024/12/05 11:34:21 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:54:41 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

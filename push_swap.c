@@ -6,7 +6,7 @@
 /*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:08:39 by manon             #+#    #+#             */
-/*   Updated: 2025/05/07 17:33:33 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:53:38 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int	verif_nbr(char *tmp, int n, t_stack *a)
 	j = 0;
 	while (tmp[j])
 	{
-		while (tmp[j] == '+' || tmp[j] == '-')
+		if (tmp[j] == '+' || tmp[j] == '-')
 			j++;
-		if (!tmp || !tmp[j] || tmp[j] == '\0')
+		if (!tmp || !tmp[j] || tmp[j] == '\0'
+			|| (n > 2147483647 || n < -2147483648))
 			return (0);
 		while (ft_isdigit(tmp[j]))
 			j++;
