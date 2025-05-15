@@ -6,7 +6,7 @@
 /*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:43:44 by mlemerci          #+#    #+#             */
-/*   Updated: 2025/05/14 14:55:04 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/15 04:28:29 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ long	ft_atoi(const char *str)
 			signe = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9' && i <= 12)
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;

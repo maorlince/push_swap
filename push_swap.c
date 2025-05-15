@@ -6,13 +6,13 @@
 /*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:08:39 by manon             #+#    #+#             */
-/*   Updated: 2025/05/14 14:53:38 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/15 04:45:49 by mlemerci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	verif_nbr(char *tmp, int n, t_stack *a)
+int	verif_nbr(char *tmp, long n, t_stack *a)
 {
 	int		j;
 	t_stack	s_tmp;
@@ -27,7 +27,7 @@ int	verif_nbr(char *tmp, int n, t_stack *a)
 			return (0);
 		while (ft_isdigit(tmp[j]))
 			j++;
-		if (tmp[j] != '\0')
+		if (tmp[j] != '\0' || j >= 12)
 			return (0);
 	}
 	s_tmp = *a;
@@ -81,8 +81,8 @@ int	main(int argc, char**argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	if (!parse_input(argv, &a))
-		return (0);
+	if (parse_input(argv, &a) != 1)
+		exit (0);
 	s_len = stack_length(a);
 	if (s_len == 2 && a->data > a->nxt->data)
 		swap(&a, 1);
