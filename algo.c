@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:18:18 by manon             #+#    #+#             */
-/*   Updated: 2025/05/07 15:24:50 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:00:36 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ void	sort_medium_stack(t_stack *a)
 		}
 		if (!verif(a))
 			reverse_rotate(a, 1);
+		if ((*a)->data < (*a)->nxt->nxt->nxt->nxt->data)
+			reverse_rotate(a, 1);
 	}
 	return ;
-}
-
+}//23154
+//42315 24315  52431 25431 12543
 void	sort_large_stack(t_stack *a, t_stack *b)
 {
 	int		i;

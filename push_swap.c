@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlemerci <mlemerci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: manon <manon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:08:39 by manon             #+#    #+#             */
-/*   Updated: 2025/05/15 04:45:49 by mlemerci         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:12:59 by manon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	verif_nbr(char *tmp, long n, t_stack *a)
+static int	verif_nbr(char *tmp, long n, t_stack *a)
 {
 	int		j;
 	t_stack	s_tmp;
 
 	j = 0;
-	while (tmp[j])
-	{
-		if (tmp[j] == '+' || tmp[j] == '-')
-			j++;
-		if (!tmp || !tmp[j] || tmp[j] == '\0'
-			|| (n > 2147483647 || n < -2147483648))
-			return (0);
-		while (ft_isdigit(tmp[j]))
-			j++;
-		if (tmp[j] != '\0' || j >= 12)
-			return (0);
-	}
+	if (n > 2147483647 || n < -2147483648)
+		return (0);
+	if (tmp[j] == '+' || tmp[j] == '-')
+		j++;
+	if (!tmp || !tmp[j] || tmp[j] == '\0')
+		return (0);
+	while (ft_isdigit(tmp[j]))
+		j++;
+	if (tmp[j] != '\0')
+		return (0);
 	s_tmp = *a;
 	while (s_tmp)
 	{
@@ -45,7 +43,7 @@ int	parse_input(char **argv, t_stack *a)
 {
 	int		i;
 	int		j;
-	int		n;
+	long	n;
 	char	**tmp;
 
 	i = 1;
@@ -67,7 +65,7 @@ int	parse_input(char **argv, t_stack *a)
 		free_tab(tmp);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 //print_stack(a);
@@ -81,7 +79,7 @@ int	main(int argc, char**argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	if (parse_input(argv, &a) != 1)
+	if (parse_input(argv, &a) != 0)
 		exit (0);
 	s_len = stack_length(a);
 	if (s_len == 2 && a->data > a->nxt->data)
